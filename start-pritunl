@@ -16,8 +16,18 @@ if [ "$1" = "bash" ]; then
 fi
 
 # allow changing debug mode
-if [ -z "$PRITUNL_DEBUG" ]; then
-    PRITUNL_DEBUG="false"
+if [ -z "$PRITUNL_PORT" ]; then
+    PRITUNL_PORT="443"
+fi
+
+# allow changing debug mode
+if [ -z "$PRITUNL_PORT" ]; then
+    PRITUNL_PORT="443"
+fi
+
+# allow changing debug mode
+if [ -z "$PRITUNL_REDIRECT" ]; then
+    PRITUNL_REDIRECT="true"
 fi
 
 # allow changing bind addr
@@ -42,6 +52,8 @@ if [ -z "$PRITUNL_DONT_WRITE_CONFIG" ]; then
         "server_cert_path": "/var/lib/pritunl/pritunl.crt",
         "temp_path": "/tmp/pritunl_%r",
         "bind_addr": "$PRITUNL_BIND_ADDR",
+        "port": "$PRITUNL_PORT",
+        "redirect_server": "$PRITUNL_REDIRECT",
         "debug": $PRITUNL_DEBUG,
         "www_path": "/usr/share/pritunl/www",
         "local_address_interface": "auto"
