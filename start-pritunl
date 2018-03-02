@@ -21,11 +21,6 @@ if [ -z "$PRITUNL_PORT" ]; then
 fi
 
 # allow changing debug mode
-if [ -z "$PRITUNL_PORT" ]; then
-    PRITUNL_PORT="443"
-fi
-
-# allow changing debug mode
 if [ -z "$PRITUNL_REDIRECT" ]; then
     PRITUNL_REDIRECT="true"
 fi
